@@ -26,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:contentDescription="@string/content_description_image"
+                app:imageUrl="@{movie.imageUrl}"
                 android:scaleType="centerCrop"
                 tools:srcCompat="@android:color/black" />
 
@@ -35,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/image_movie"
                 android:layout_margin="@dimen/small_margin"
-                android:text="@string/teste_text" />
+                android:text="@{movie.title}" />
 
             <TextView
                 android:id="@+id/release_date"
@@ -46,7 +47,7 @@
                 android:layout_marginTop="@dimen/small_margin"
                 android:layout_marginEnd="@dimen/small_margin"
                 android:layout_marginBottom="@dimen/small_margin"
-                android:text="@string/teste_text" />
+                android:text="@{movie.releaseDate}" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </layout>

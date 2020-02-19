@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-
-import com.thiaguh11.movies.R
 import com.thiaguh11.movies.databinding.FragmentMoviesListBinding
 
 /**

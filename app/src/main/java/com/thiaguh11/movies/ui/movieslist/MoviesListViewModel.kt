@@ -1,5 +1,6 @@
 package com.thiaguh11.movies.ui.movieslist
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -40,9 +41,11 @@ class MoviesListViewModel : ViewModel() {
         coroutineScope.launch {
             try {
                 _status.value = ApiStatus.LOADING
-                _movies.value = MoviesApi.retrofitService.getPopularMovies(apiKey, "pt-br")
+                val listResult = MoviesApi.retrofitService.getPopularMovies(apiKey, "pt-br")
+                Log.i("teste",_movies.value.toString())
                 _status.value = ApiStatus.DONE
             } catch (e: Exception) {
+                Log.i("teste",e.message)
                 _movies.value = ArrayList()
                 _status.value = ApiStatus.ERROR
             }
