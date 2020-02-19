@@ -6,6 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Movie(
+    val id: Int,
     val title: String,
     val overview: String,
     @Json(name = "release_date")

@@ -4,7 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="movie"
+            type="com.thiaguh11.movies.models.Movie" />
     </data>
 
     <androidx.cardview.widget.CardView
