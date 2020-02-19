@@ -18,5 +18,9 @@
         android:id="@+id/moviesDetailsFragment"
         android:name="com.thiaguh11.movies.ui.moviesdetails.MoviesDetailsFragment"
         android:label="fragment_movies_details"
-        tools:layout="@layout/fragment_movies_details" />
+        tools:layout="@layout/fragment_movies_details" >
+        <argument
+            android:name="movie"
+            app:argType="com.thiaguh11.movies.models.Movie" />
+    </fragment>
 </navigation>
