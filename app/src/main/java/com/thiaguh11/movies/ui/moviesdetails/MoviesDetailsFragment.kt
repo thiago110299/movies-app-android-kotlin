@@ -15,13 +15,11 @@ class MoviesDetailsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentMoviesDetailsBinding.inflate(inflater)
-        val application = requireNotNull(activity).application
 
         binding.lifecycleOwner = this
 
         val movie = MoviesDetailsFragmentArgs.fromBundle(arguments!!).movie
-        val viewModelFactory = MoviesDetailsViewModelFactory(movie, application)
-
+        val viewModelFactory = MoviesDetailsViewModelFactory(movie)
 
         binding.viewModel = ViewModelProviders.of(this, viewModelFactory).get(MoviesDetailsViewModel::class.java)
 

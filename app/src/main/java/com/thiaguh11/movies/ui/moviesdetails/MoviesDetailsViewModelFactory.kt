@@ -7,13 +7,12 @@ import com.thiaguh11.movies.models.Movie
 import java.lang.IllegalArgumentException
 
 class MoviesDetailsViewModelFactory(
-    private val movie: Movie,
-    private val application: Application
+    private val movie: Movie
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MoviesDetailsViewModel::class.java)) {
-            return MoviesDetailsViewModel(movie, application) as T
+            return MoviesDetailsViewModel(movie) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
