@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.thiaguh11.movies.models.Movie
+import com.thiaguh11.movies.models.PopularResponse
 import com.thiaguh11.movies.network.MoviesApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,6 +17,9 @@ enum class ApiStatus {LOADING, ERROR, DONE}
 private val apiKey = "bc2e3da040e08c84bf35240d7d32cb59"
 
 class MoviesListViewModel : ViewModel() {
+    companion object {
+        const val TAG = "MoviesListViewModel"
+    }
 
     private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus>
@@ -41,11 +45,10 @@ class MoviesListViewModel : ViewModel() {
         coroutineScope.launch {
             try {
                 _status.value = ApiStatus.LOADING
-                val listResult = MoviesApi.retrofitService.getPopularMovies(apiKey, "pt-br")
-                Log.i("teste",_movies.value.toString())
+                val popularResponse: PopularResponse = MoviesApi.retrofitService.getPopularMovies(apiKey, "pt-br")
+                _movies.value = popularResponse.results
                 _status.value = ApiStatus.DONE
             } catch (e: Exception) {
-                Log.i("teste",e.message)
                 _movies.value = ArrayList()
                 _status.value = ApiStatus.ERROR
             }
