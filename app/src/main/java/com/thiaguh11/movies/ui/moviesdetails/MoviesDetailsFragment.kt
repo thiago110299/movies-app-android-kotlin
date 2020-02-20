@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import com.thiaguh11.movies.R
+import androidx.lifecycle.ViewModelProviders
+import com.thiaguh11.movies.databinding.FragmentMoviesDetailsBinding
 
 class MoviesDetailsFragment : Fragment() {
     override fun onCreateView(
@@ -14,6 +14,17 @@ class MoviesDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_movies_details, container, false)
+        val binding = FragmentMoviesDetailsBinding.inflate(inflater)
+        val application = requireNotNull(activity).application
+
+        binding.lifecycleOwner = this
+
+        val movie = MoviesDetailsFragmentArgs.fromBundle(arguments!!).movie
+        val viewModelFactory = MoviesDetailsViewModelFactory(movie, application)
+
+
+        binding.viewModel = ViewModelProviders.of(this, viewModelFactory).get(MoviesDetailsViewModel::class.java)
+
+        return binding.root
     }
 }
