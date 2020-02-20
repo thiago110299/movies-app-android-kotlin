@@ -3,4 +3,5 @@
     <string name="teste">Teste</string>
     <string name="content_description_image">Image</string>
     <string name="teste_text">Teste</string>
+    <string name="release_date_label_text">Ano de Lançamento: </string>
 </resources>

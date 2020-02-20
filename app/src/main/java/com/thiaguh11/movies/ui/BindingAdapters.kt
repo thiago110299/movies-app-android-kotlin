@@ -9,7 +9,7 @@ import com.thiaguh11.movies.R
 import com.thiaguh11.movies.models.Movie
 import com.thiaguh11.movies.ui.movieslist.MoviesAdapter
 
-@BindingAdapter("app:image_url")
+@BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let { imageUrl ->
         val url = "http://image.tmdb.org/t/p/w185$imageUrl"
