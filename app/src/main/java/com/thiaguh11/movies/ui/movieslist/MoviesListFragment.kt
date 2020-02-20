@@ -31,12 +31,12 @@ class MoviesListFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-        binding.recyclerView.adapter = MoviesAdapter(MoviesAdapter.OnClickListener{
-            viewModel.displayMovieDetails(it)
+        binding.recyclerView.adapter = MoviesAdapter(MoviesAdapter.OnClickListener{ movie ->
+            viewModel.displayMovieDetails(movie)
         })
 
-        viewModel.navigateToSelectedMovie.observe(this, Observer { movie ->
-            if(movie != null) {
+        viewModel.navigateToSelectedMovie.observe(this, Observer { selectedMovie ->
+            selectedMovie?.let { movie ->
                 findNavController().navigate(MoviesListFragmentDirections.actionMoviesListFragmentToMoviesDetailsFragment(movie))
                 viewModel.displayMovieDetailsComplete()
             }
