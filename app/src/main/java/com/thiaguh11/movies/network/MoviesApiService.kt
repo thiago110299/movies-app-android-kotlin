@@ -9,7 +9,9 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-private val BASE_URL = "https://api.themoviedb.org/3/"
+object Api {
+    const val BASE_URL = "https://api.themoviedb.org/3/"
+}
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -18,11 +20,10 @@ private val moshi = Moshi.Builder()
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .addCallAdapterFactory(CoroutineCallAdapterFactory())
-    .baseUrl(BASE_URL)
+    .baseUrl(Api.BASE_URL)
     .build()
 
 interface MoviesApiService {
-
     @GET("movie/popular")
     suspend fun getPopularMovies(
         @Query("api_key") apiKey: String,
