@@ -2,6 +2,7 @@ package com.thiaguh11.movies.models
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -13,4 +14,7 @@ data class Movie(
     val releaseDate: String,
     @Json(name = "poster_path")
     val imageUrl: String
-) : Parcelable
+) : Parcelable {
+    @IgnoredOnParcel
+    val year : String = releaseDate.split("-")[0]
+}
