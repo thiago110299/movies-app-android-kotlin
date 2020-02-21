@@ -1,4 +1,4 @@
-package com.thiaguh11.movies.DAO
+package com.thiaguh11.movies.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
