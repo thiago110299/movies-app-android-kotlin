@@ -26,9 +26,8 @@
                 android:id="@+id/image_movie"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginTop="@dimen/small_margin"
                 android:contentDescription="@string/content_description_image"
-                android:scaleType="fitCenter"
+                android:scaleType="centerCrop"
                 app:imageUrl="@{movie.imageUrl}"
                 tools:srcCompat="@android:color/black" />
 
@@ -36,8 +35,11 @@
                 android:id="@+id/title_text"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginStart="@dimen/small_margin_4dp"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin_4dp"
+                android:layout_marginBottom="@dimen/small_margin"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/small_margin"
                 android:text="@{movie.title}" />
 
             <TextView
@@ -45,7 +47,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_margin="@dimen/small_margin"
+                android:layout_marginStart="@dimen/small_margin_4dp"
+                android:layout_marginEnd="@dimen/small_margin_4dp"
+                android:layout_marginBottom="@dimen/small_margin"
                 android:text="@{movie.year}" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Movies</string>
+    <string name="app_label">Search</string>
     <string name="teste">Teste</string>
     <string name="content_description_image">Image</string>
     <string name="teste_text">Teste</string>
     <string name="release_date_label_text">Ano de Lançamento: </string>
+    <string name="search_title">Pesquisar</string>
+    <string name="search_hint">Pesquisar filmes</string>
+    <string name="popular_movies_text">Popular Movies</string>
 </resources>
