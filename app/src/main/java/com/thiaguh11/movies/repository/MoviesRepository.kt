@@ -14,15 +14,16 @@ class MoviesRepository(private val database: MoviesDatabase) {
 
     companion object {
         private const val apiKey = "bc2e3da040e08c84bf35240d7d32cb59"
+        private const val languagePTBR = "pt-br"
     }
 
-    val movies: LiveData<List<Movie>> = Transformations.map(database.movieDao.getMovies()) { ListDatabaseMovie ->
-        ListDatabaseMovie.asDomainModel()
+    val movies: LiveData<List<Movie>> = Transformations.map(database.movieDao.getMovies()) { listDatabaseMovie ->
+        listDatabaseMovie.asDomainModel()
     }
 
     suspend fun refreshMovies() {
         withContext(Dispatchers.IO) {
-            val movies = MoviesApi.retrofitService.getPopularMovies(apiKey, "pt-br")
+            val movies = MoviesApi.theMovieDB.getPopularMovies(apiKey, languagePTBR)
             database.movieDao.insertAll(movies.asDatabaseModel())
         }
     }
