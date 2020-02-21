@@ -13,17 +13,7 @@ object Api {
     const val BASE_URL = "https://api.themoviedb.org/3/"
 }
 
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
-
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .addCallAdapterFactory(CoroutineCallAdapterFactory())
-    .baseUrl(Api.BASE_URL)
-    .build()
-
-interface MoviesApiService {
+interface TMDBApiService {
     @GET("movie/popular")
     suspend fun getPopularMovies(
         @Query("api_key") apiKey: String,
@@ -31,6 +21,17 @@ interface MoviesApiService {
     ): PopularResponse
 }
 
+private val moshi = Moshi.Builder()
+    .add(KotlinJsonAdapterFactory())
+    .build()
+
 object MoviesApi {
-    val retrofitService = retrofit.create(MoviesApiService::class.java)
+
+    private val retrofit = Retrofit.Builder()
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .addCallAdapterFactory(CoroutineCallAdapterFactory())
+        .baseUrl(Api.BASE_URL)
+        .build()
+
+    val theMovieDB: TMDBApiService = retrofit.create(TMDBApiService::class.java)
 }
