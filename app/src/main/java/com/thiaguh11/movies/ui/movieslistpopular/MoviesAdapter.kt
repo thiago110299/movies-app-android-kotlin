@@ -1,4 +1,4 @@
-package com.thiaguh11.movies.ui.movieslist
+package com.thiaguh11.movies.ui.movieslistpopular
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package com.thiaguh11.movies.ui.movieslist
+package com.thiaguh11.movies.ui.movieslistpopular
 
 import android.os.Bundle
 import android.view.*
@@ -8,10 +8,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.thiaguh11.movies.databinding.FragmentMoviesListBinding
 
-class MoviesListFragment : Fragment() {
+class MoviesListPopularFragment : Fragment() {
 
-    private val viewModel: MoviesListViewModel by lazy {
-        ViewModelProviders.of(this).get(MoviesListViewModel::class.java)
+    private val popularViewModel: MoviesListPopularViewModel by lazy {
+        ViewModelProviders.of(this).get(MoviesListPopularViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -23,16 +23,16 @@ class MoviesListFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        binding.viewModel = viewModel
+        binding.viewModel = popularViewModel
 
         binding.recyclerView.adapter = MoviesAdapter(MoviesAdapter.OnClickListener{ movie ->
-            viewModel.displayMovieDetails(movie)
+            popularViewModel.displayMovieDetails(movie)
         })
 
-        viewModel.navigateToSelectedMovie.observe(this, Observer { selectedMovie ->
+        popularViewModel.navigateToSelectedMovie.observe(this, Observer { selectedMovie ->
             selectedMovie?.let { movie ->
-                findNavController().navigate(MoviesListFragmentDirections.actionMoviesListFragmentToMoviesDetailsFragment(movie))
-                viewModel.displayMovieDetailsComplete()
+                findNavController().navigate(MoviesListPopularFragmentDirections.actionMoviesListFragmentToMoviesDetailsFragment(movie))
+                popularViewModel.displayMovieDetailsComplete()
             }
         })
 

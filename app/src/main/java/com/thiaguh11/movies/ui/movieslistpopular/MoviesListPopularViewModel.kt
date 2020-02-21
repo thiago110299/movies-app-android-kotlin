@@ -1,4 +1,4 @@
-package com.thiaguh11.movies.ui.movieslist
+package com.thiaguh11.movies.ui.movieslistpopular
 
 import android.app.Application
 import androidx.lifecycle.*
@@ -12,7 +12,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class MoviesListViewModel(app: Application) : AndroidViewModel(app) {
+class MoviesListPopularViewModel(app: Application) : AndroidViewModel(app) {
 
     private val moviesRepository = MoviesRepository(getDatabase(app))
 

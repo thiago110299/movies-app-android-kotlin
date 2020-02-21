@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.thiaguh11.movies.ui.movieslist.MoviesListViewModel" />
+            type="com.thiaguh11.movies.ui.movieslistpopular.MoviesListPopularViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".ui.movieslist.MoviesListFragment">
+        tools:context=".ui.movieslistpopular.MoviesListPopularFragment">
 
         <TextView
             android:id="@+id/label_title"

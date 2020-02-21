@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/moviesListFragment"
-        android:name="com.thiaguh11.movies.ui.movieslist.MoviesListFragment"
+        android:name="com.thiaguh11.movies.ui.movieslistpopular.MoviesListPopularFragment"
         android:label="fragment_movies_list"
         tools:layout="@layout/fragment_movies_list" >
         <action

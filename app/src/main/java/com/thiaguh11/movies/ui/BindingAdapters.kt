@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.thiaguh11.movies.R
 import com.thiaguh11.movies.models.Movie
-import com.thiaguh11.movies.ui.movieslist.MoviesAdapter
+import com.thiaguh11.movies.ui.movieslistpopular.MoviesAdapter
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {

@@ -19,6 +19,13 @@ interface TMDBApiService {
         @Query("api_key") apiKey: String,
         @Query("language") language: String
     ): PopularResponse
+
+    @GET("search/movie")
+    suspend fun getMovie(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("query") query: String
+    ): PopularResponse
 }
 
 private val moshi = Moshi.Builder()
