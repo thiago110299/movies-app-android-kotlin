@@ -2,7 +2,7 @@ package com.thiaguh11.movies.database
 
 import android.content.Context
 import androidx.room.*
-import com.thiaguh11.movies.DAO.MovieDao
+import com.thiaguh11.movies.dao.MovieDao
 
 @Database(entities = [DatabaseMovie::class], version = 1)
 abstract class MoviesDatabase: RoomDatabase() {
