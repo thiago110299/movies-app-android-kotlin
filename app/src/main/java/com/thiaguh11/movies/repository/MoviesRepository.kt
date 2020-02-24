@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
 class MoviesRepository(private val database: MoviesDatabase) {
 
     companion object {
-        private const val apiKey = "bc2e3da040e08c84bf35240d7d32cb59"
+        private const val apiKey = "*************"
         private const val languagePTBR = "pt-br"
     }
 
