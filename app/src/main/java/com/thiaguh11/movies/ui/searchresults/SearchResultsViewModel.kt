@@ -29,7 +29,7 @@ class SearchResultsViewModel(val query: String) : ViewModel() {
 
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    private val _resultsIsNull = MutableLiveData<Boolean>()
+    private val _resultsIsNull = MutableLiveData<Boolean>(false)
     val resultsIsNull: LiveData<Boolean> get() = _resultsIsNull
 
     init {
@@ -40,10 +40,13 @@ class SearchResultsViewModel(val query: String) : ViewModel() {
         coroutineScope.launch {
             try {
                 val listResults = theMovieDB.getMovie(apiKey, languagePTBR, query).results
-                listResults.let { results ->
-                    _movies.value = results
+                if(listResults.isNotEmpty()){
+                    _movies.value = listResults
                     _resultsIsNull.value = false
+                } else {
+                    _resultsIsNull.value = true
                 }
+
             } catch (e: Exception) {
                 _resultsIsNull.value = true
                 _movies.value = ArrayList()
