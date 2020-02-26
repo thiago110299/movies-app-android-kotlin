@@ -1,4 +1,4 @@
-package com.thiaguh11.movies.ui.movieslistpopular
+package com.thiaguh11.movies.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,13 +9,17 @@ import com.thiaguh11.movies.databinding.GridItemRecyclerViewBinding
 import com.thiaguh11.movies.models.Movie
 
 
-class MoviesAdapter(private val onClickListener: OnClickListener) : ListAdapter<Movie, MoviesAdapter.MoviesViewHolder>(DiffCallback) {
+class MoviesListPopularAdapter(private val onClickListener: OnClickListener) : ListAdapter<Movie, MoviesListPopularAdapter.MoviesListPopularViewHolder>(
+    DiffCallback
+) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
-        return MoviesViewHolder(GridItemRecyclerViewBinding.inflate(LayoutInflater.from(parent.context)))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesListPopularViewHolder {
+        return MoviesListPopularViewHolder(
+            GridItemRecyclerViewBinding.inflate(LayoutInflater.from(parent.context))
+        )
     }
 
-    override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MoviesListPopularViewHolder, position: Int) {
         val movie = getItem(position)
         holder.itemView.setOnClickListener{
             onClickListener.onClick(movie)
@@ -27,7 +31,7 @@ class MoviesAdapter(private val onClickListener: OnClickListener) : ListAdapter<
         fun onClick(movie: Movie) = clickListener(movie)
     }
 
-    class MoviesViewHolder(private val binding : GridItemRecyclerViewBinding) : RecyclerView.ViewHolder(binding.root){
+    class MoviesListPopularViewHolder(private val binding : GridItemRecyclerViewBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(movie: Movie) {
             binding.movie = movie
             binding.executePendingBindings()

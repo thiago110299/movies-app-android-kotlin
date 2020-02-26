@@ -1,4 +1,4 @@
-package com.thiaguh11.movies.ui
+package com.thiaguh11.movies.ui.adapters
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -7,7 +7,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.thiaguh11.movies.R
 import com.thiaguh11.movies.models.Movie
-import com.thiaguh11.movies.ui.movieslistpopular.MoviesAdapter
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -22,8 +21,14 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
-@BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: List<Movie>?) {
-    val adapter = recyclerView.adapter as MoviesAdapter
+@BindingAdapter("listDataPopular")
+fun bindRecyclerViewPopularList(recyclerView: RecyclerView, data: List<Movie>?) {
+    val adapter = recyclerView.adapter as MoviesListPopularAdapter
+    adapter.submitList(data)
+}
+
+@BindingAdapter("listDataSearchResults")
+fun bindRecyclerViewSearchResultsList(recyclerView: RecyclerView, data: List<Movie>?) {
+    val adapter = recyclerView.adapter as MoviesListResultsAdapter
     adapter.submitList(data)
 }
