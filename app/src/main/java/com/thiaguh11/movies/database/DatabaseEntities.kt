@@ -14,7 +14,7 @@ data class DatabaseMovie(
     @Json(name = "release-date")
     val releaseDate: String,
     @Json(name = "poster_path")
-    val imageUrl: String
+    val imageUrl: String?
 )
 
 fun List<DatabaseMovie>.asDomainModel() : List<Movie> {
