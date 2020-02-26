@@ -13,7 +13,7 @@ data class Movie(
     @Json(name = "release_date")
     val releaseDate: String,
     @Json(name = "poster_path")
-    val imageUrl: String
+    val imageUrl: String?
 ) : Parcelable {
     @IgnoredOnParcel
     val year : String = releaseDate.split("-")[0]
