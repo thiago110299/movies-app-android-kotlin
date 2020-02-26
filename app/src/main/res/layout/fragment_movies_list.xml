@@ -33,7 +33,7 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:itemCount="16"
             app:spanCount="2"
-            app:listData="@{viewModel.movies}"
+            app:listDataPopular="@{viewModel.movies}"
             tools:listitem="@layout/grid_item_recycler_view"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

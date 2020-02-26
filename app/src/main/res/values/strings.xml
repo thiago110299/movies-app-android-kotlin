@@ -8,4 +8,9 @@
     <string name="search_title">Pesquisar</string>
     <string name="search_hint">Pesquisar filmes</string>
     <string name="popular_movies_text">Popular Movies</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movies_text">Movies</string>
+    <string name="result_search_text">Resultados da busca:</string>
+    <string name="not_found_text">Nenhum resultado encontrado!</string>
 </resources>

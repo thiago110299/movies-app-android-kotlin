@@ -8,19 +8,32 @@
     <fragment
         android:id="@+id/moviesListFragment"
         android:name="com.thiaguh11.movies.ui.movieslistpopular.MoviesListPopularFragment"
-        android:label="fragment_movies_list"
-        tools:layout="@layout/fragment_movies_list" >
+        android:label="@string/movies_text"
+        tools:layout="@layout/fragment_movies_list">
         <action
             android:id="@+id/action_moviesListFragment_to_moviesDetailsFragment"
             app:destination="@id/moviesDetailsFragment" />
+        <action
+            android:id="@+id/action_moviesListFragment_to_searchResultsFragment"
+            app:destination="@id/searchResultsFragment" />
     </fragment>
     <fragment
         android:id="@+id/moviesDetailsFragment"
         android:name="com.thiaguh11.movies.ui.moviesdetails.MoviesDetailsFragment"
-        android:label="fragment_movies_details"
-        tools:layout="@layout/fragment_movies_details" >
+        android:label="Detalhes"
+        tools:layout="@layout/fragment_movies_details">
         <argument
             android:name="movie"
             app:argType="com.thiaguh11.movies.models.Movie" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchResultsFragment"
+        android:name="com.thiaguh11.movies.ui.searchresults.SearchResultsFragment">
+        <action
+            android:id="@+id/action_searchResultsFragment_to_moviesDetailsFragment"
+            app:destination="@id/moviesDetailsFragment" />
+        <argument
+            android:name="query"
+            app:argType="string" />
     </fragment>
 </navigation>
